@@ -10,6 +10,8 @@ import software.amazon.awscdk.services.lambda.*;
 import software.amazon.awscdk.services.secretsmanager.ISecret;
 import software.amazon.awscdk.services.rds.DatabaseInstance;
 import software.amazon.awscdk.services.cognito.UserPool;
+import software.amazon.awscdk.services.lambda.Runtime;
+
 
 import java.util.List;
 import java.util.Map;
@@ -40,9 +42,9 @@ public class ApiStack extends Stack {
 
         // Lambda function (Python shown; Java/Node also fine)
         Function handler = Function.Builder.create(this, "ApiHandler")
-            .runtime(Runtime.PYTHON_3_11)
+            .runtime(Runtime.JAVA_17)
             .handler("app.lambda_handler")
-            .code(Code.fromAsset("lambda")) // folder with app.py
+            .code(Code.fromAsset("../lambda")) // folder with app.py
             .vpc(vpc)
             .vpcSubnets(SubnetSelection.builder().subnetType(SubnetType.PRIVATE_WITH_EGRESS).build())
             .securityGroups(List.of(lambdaSg))

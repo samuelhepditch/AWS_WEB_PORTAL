@@ -10,6 +10,11 @@ import software.amazon.awscdk.services.ec2.*;
 import software.amazon.awscdk.services.rds.*;
 import software.amazon.awscdk.services.secretsmanager.*;
 
+import software.amazon.awscdk.services.ec2.InstanceType;
+import software.amazon.awscdk.services.ec2.InstanceClass;
+import software.amazon.awscdk.services.ec2.InstanceSize;
+
+
 import java.util.List;
 
 public class DataStack extends Stack {
